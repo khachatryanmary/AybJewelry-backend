@@ -1,0 +1,730 @@
+{
+  "users": [
+    {
+      "username": "aaa",
+      "email": "aaa@mail.ru",
+      "password": "aaa"
+    },
+    {
+      "username": "Mary",
+      "email": "abc@gmail.com",
+      "password": "123"
+    }
+  ],
+  "loggedIn": [
+    {
+      "username": "Mary",
+      "email": "abc@gmail.com",
+      "password": "123"
+    }
+  ],
+  "necklaces": [
+    {
+      "name": "CHOKER",
+      "price": "20000",
+      "image": "/uploads/necklaces/necklace1.jpg",
+      "category": "necklace",
+      "alt": "necklace1",
+      "description": "Choker with a radiant red moonstone set in high-quality 925 sterling silver. Timeless and mystical, it adds a touch of sophistication and charm to any outfit.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Natural Red Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable choker length for comfort and versatility"
+        }
+      ],
+      "images": [
+        "/uploads/necklaces/necklaceDetails/necklaceDetail1.jpg"
+      ]
+    },
+    {
+      "name": "PEARL STRAND",
+      "price": "25000",
+      "image": "/uploads/necklaces/necklace2.jpg",
+      "alt": "necklace2",
+      "category": "necklace",
+      "description": "Strand of luminous pearls adorned with a delicate rose — a romantic blend of grace, purity, and timeless charm.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable necklace length for comfort and versatility"
+        }
+      ],
+      "images": [
+        "/uploads/necklaces/necklaceDetails/necklaceDetail2.jpg"
+      ]
+    },
+    {
+      "name": "ROSE",
+      "price": "25000",
+      "image": "/uploads/necklaces/necklace3.jpg",
+      "alt": "necklace3",
+      "category": "necklace",
+      "description": "Necklace featuring a delicate rose and a luminous pearl. Romantic and graceful, it embodies timeless beauty with a soft, feminine touch.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable necklace length for comfort and versatility"
+        }
+      ]
+    },
+    {
+      "name": "NARCISSUS",
+      "price": "35000",
+      "image": "/uploads/necklaces/necklace16.jpg",
+      "alt": "necklace4",
+      "category": "necklace",
+      "description": "Necklace featuring a blooming narcissus and a radiant pearl. Elegant and poetic, it captures the essence of purity, renewal, and refined femininity.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable necklace length for comfort and versatility"
+        }
+      ]
+    },
+    {
+      "name": "SNOWDROP",
+      "price": "17000",
+      "image": "/uploads/necklaces/necklace17.jpg",
+      "alt": "necklace5",
+      "category": "necklace",
+      "description": "Necklace featuring a graceful snowdrop and a shimmering wish pearl. Symbolizing hope and new beginnings, it brings a gentle elegance and a whisper of magic to any look.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable necklace length for comfort and versatility"
+        }
+      ]
+    },
+    {
+      "name": "CHGITEM",
+      "price": "20000",
+      "image": "/uploads/necklaces/necklace4.jpg",
+      "category": "necklace",
+      "alt": "necklace6",
+      "description": "",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable necklace length for comfort and versatility"
+        }
+      ]
+    },
+    {
+      "name": "CHOKER BLOOM",
+      "category": "necklace",
+      "price": "20000",
+      "image": "/uploads/necklaces/necklace5.jpg",
+      "alt": "necklace7"
+    },
+    {
+      "name": "MOONSTONE",
+      "category": "necklace",
+      "price": "48000",
+      "image": "/uploads/necklaces/necklace6.jpg",
+      "alt": "necklace8"
+    },
+    {
+      "name": "HEART",
+      "category": "necklace",
+      "price": "40000",
+      "image": "/uploads/necklaces/necklace7.jpg",
+      "alt": "necklace9"
+    },
+    {
+      "name": "SHELL",
+      "category": "necklace",
+      "price": "25000",
+      "image": "/uploads/necklaces/necklace8.jpg",
+      "alt": "necklace10"
+    },
+    {
+      "category": "necklace",
+      "name": "RABBIT",
+      "price": "40000",
+      "image": "/uploads/necklaces/necklace15.jpg",
+      "alt": "necklace11"
+    },
+    {
+      "name": "GRAPE",
+      "category": "necklace",
+      "price": "20000",
+      "image": "/uploads/necklaces/necklace10.jpg",
+      "alt": "necklace12"
+    },
+    {
+      "name": "A DROP",
+      "category": "necklace",
+      "price": "10000",
+      "image": "/uploads/necklaces/necklace11.jpg",
+      "alt": "necklace13"
+    },
+    {
+      "name": "KRASIVO",
+      "category": "necklace",
+      "price": "10000",
+      "image": "/uploads/necklaces/necklace12.jpeg",
+      "alt": "necklace14"
+    },
+    {
+      "name": "PAPAPPAPA",
+      "category": "necklace",
+      "price": "15000",
+      "image": "/uploads/necklaces/necklace13.jpeg",
+      "alt": "necklace15"
+    },
+    {
+      "name": "CHOKER ESIM",
+      "category": "necklace",
+      "price": "26000",
+      "image": "/uploads/necklaces/necklace18.jpg",
+      "alt": "necklace16"
+    },
+    {
+      "name": "PEARLS",
+      "category": "necklace",
+      "price": "25000",
+      "image": "/uploads/necklaces/necklace19.jpg",
+      "alt": "necklace17"
+    }
+  ],
+  "rings": [
+    {
+      "name": "CHOKER",
+      "category": "ring",
+      "price": "20000",
+      "image": "/uploads/rings/ring7.jpg",
+      "alt": "ring1",
+      "description": "Choker style ring with elegant design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Natural Red Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "PEARL STRAND",
+      "category": "ring",
+      "price": "25000",
+      "image": "/uploads/rings/ring9.jpg",
+      "alt": "ring2",
+      "description": "Pearl strand inspired ring, graceful and elegant.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "ROSE",
+      "category": "ring",
+      "price": "25000",
+      "image": "/uploads/rings/ring3.jpg",
+      "alt": "ring3",
+      "description": "Ring with delicate rose design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "NARCISSUS",
+      "category": "ring",
+      "price": "35000",
+      "image": "/uploads/rings/ring1.jpg",
+      "alt": "ring4",
+      "description": "Blooming narcissus inspired ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "SNOWDROP",
+      "category": "ring",
+      "price": "17000",
+      "image": "/uploads/rings/ring10.jpg",
+      "alt": "ring5",
+      "description": "Graceful snowdrop ring with shimmering pearl.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHGITEM",
+      "category": "ring",
+      "price": "20000",
+      "image": "/uploads/rings/ring14.jpg",
+      "alt": "ring6",
+      "description": "Elegant chgitem style ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHOKER BLOOM",
+      "category": "ring",
+      "price": "20000",
+      "image": "/uploads/rings/ring4.jpg",
+      "alt": "ring7",
+      "description": "Choker bloom ring with stylish design."
+    },
+    {
+      "name": "MOONSTONE",
+      "category": "ring",
+      "price": "48000",
+      "image": "/uploads/rings/ring8.jpg",
+      "alt": "ring8",
+      "description": "Moonstone inspired ring with radiant beauty."
+    },
+    {
+      "name": "HEART",
+      "category": "ring",
+      "price": "40000",
+      "image": "/uploads/rings/ring2.jpg",
+      "alt": "ring9",
+      "description": "Heart shaped ring symbolizing love."
+    },
+    {
+      "name": "RABBIT",
+      "category": "ring",
+      "price": "40000",
+      "image": "/uploads/rings/ring5.png",
+      "alt": "ring11",
+      "description": "Rabbit themed ring, playful and cute."
+    },
+    {
+      "name": "GRAPE",
+      "category": "ring",
+      "price": "20000",
+      "image": "/uploads/rings/ring12.jpg",
+      "alt": "ring12",
+      "description": "Grape inspired ring with rich details."
+    },
+    {
+      "name": "A DROP",
+      "category": "ring",
+      "price": "10000",
+      "image": "/uploads/rings/ring13.jpg",
+      "alt": "ring13",
+      "description": "Simple and elegant drop style ring."
+    },
+    {
+      "name": "KRASIVO",
+      "category": "ring",
+      "price": "10000",
+      "image": "/uploads/rings/ring6.jpg",
+      "alt": "ring14",
+      "description": "Krasivo ring with unique charm."
+    },
+    {
+      "name": "PAPAPPAPA",
+      "category": "ring",
+      "price": "15000",
+      "image": "/uploads/rings/ring15.jpg",
+      "alt": "ring15",
+      "description": "Papappapa style ring, trendy and bold."
+    },
+    {
+      "name": "PEARLS",
+      "category": "ring",
+      "price": "25000",
+      "image": "/uploads/rings/ring16.jpg",
+      "alt": "ring16",
+      "description": "Pearls inspired ring, classic and refined."
+    }
+  ],
+  "earrings": [
+    {
+      "name": "CHOKER",
+      "category": "earring",
+      "price": "20000",
+      "image": "/uploads/earrings/earring13.jpg",
+      "alt": "earring1",
+      "description": "Choker style ring with elegant design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Natural Red Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "PEARL STRAND",
+      "category": "earring",
+      "price": "25000",
+      "image": "/uploads/earrings/earring14.jpg",
+      "alt": "earring2",
+      "description": "Pearl strand inspired ring, graceful and elegant.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "ROSE",
+      "category": "earring",
+      "price": "25000",
+      "image": "/uploads/earrings/earring12.jpg",
+      "alt": "earring3",
+      "description": "Ring with delicate rose design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "NARCISSUS",
+      "category": "earring",
+      "price": "35000",
+      "image": "/uploads/earrings/earring3.jpg",
+      "alt": "earring4",
+      "description": "Blooming narcissus inspired ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "SNOWDROP",
+      "category": "earring",
+      "price": "17000",
+      "image": "/uploads/earrings/earring7.jpg",
+      "alt": "earring5",
+      "description": "Graceful snowdrop ring with shimmering pearl.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHGITEM",
+      "category": "earring",
+      "price": "20000",
+      "image": "/uploads/earrings/earring9.jpg",
+      "alt": "earring6",
+      "description": "Elegant chgitem style ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHOKER BLOOM",
+      "category": "earring",
+      "price": "20000",
+      "image": "/uploads/earrings/earring8.jpg",
+      "alt": "earring7",
+      "description": "Choker bloom ring with stylish design."
+    },
+    {
+      "name": "MOONSTONE",
+      "category": "earring",
+      "price": "48000",
+      "image": "/uploads/earrings/earring11.jpg",
+      "alt": "earring8",
+      "description": "Moonstone inspired ring with radiant beauty."
+    },
+    {
+      "category": "earring",
+      "name": "HEART",
+      "price": "40000",
+      "image": "/uploads/earrings/earring1.jpg",
+      "alt": "earring9",
+      "description": "Heart shaped ring symbolizing love."
+    },
+    {
+      "name": "SHELL",
+      "category": "earring",
+      "price": "25000",
+      "image": "/uploads/earrings/earring10.jpg",
+      "alt": "earring10",
+      "description": "Shell inspired ring with ocean vibes."
+    },
+    {
+      "category": "earring",
+      "name": "RABBIT",
+      "price": "40000",
+      "image": "/uploads/earrings/earring6.jpg",
+      "alt": "earring11",
+      "description": "Rabbit themed ring, playful and cute."
+    },
+    {
+      "name": "GRAPE",
+      "category": "earring",
+      "price": "20000",
+      "image": "/uploads/earrings/earring4.jpg",
+      "alt": "earring12",
+      "description": "Grape inspired ring with rich details."
+    },
+    {
+      "name": "A DROP",
+      "category": "earring",
+      "price": "10000",
+      "image": "/uploads/earrings/earring2.jpg",
+      "alt": "earring13",
+      "description": "Simple and elegant drop style ring."
+    },
+    {
+      "name": "KRASIVO",
+      "category": "earring",
+      "price": "10000",
+      "image": "/uploads/earrings/earring5.jpg",
+      "alt": "earring14",
+      "description": "Krasivo ring with unique charm."
+    }
+  ],
+  "bracelets": [
+    {
+      "name": "CHOKER",
+      "category": "bracelet",
+      "price": "20000",
+      "image": "/uploads/bracelets/bracelet6.jpg",
+      "alt": "bracelet1",
+      "description": "Choker style ring with elegant design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Natural Red Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "PEARL STRAND",
+      "category": "bracelet",
+      "price": "25000",
+      "image": "/uploads/bracelets/bracelet9.jpg",
+      "alt": "bracelet2",
+      "description": "Pearl strand inspired ring, graceful and elegant.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "ROSE",
+      "category": "bracelet",
+      "price": "25000",
+      "image": "/uploads/bracelets/bracelet5.jpg",
+      "alt": "bracelet3",
+      "description": "Ring with delicate rose design.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "NARCISSUS",
+      "category": "bracelet",
+      "price": "35000",
+      "image": "/uploads/bracelets/bracelet7.jpg",
+      "alt": "bracelet4",
+      "description": "Blooming narcissus inspired ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "SNOWDROP",
+      "price": "17000",
+      "image": "/uploads/bracelets/bracelet2.jpg",
+      "category": "bracelet",
+      "alt": "bracelet5",
+      "description": "Graceful snowdrop ring with shimmering pearl.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHGITEM",
+      "category": "bracelet",
+      "price": "20000",
+      "image": "/uploads/bracelets/bracelet1.jpg",
+      "alt": "bracelet6",
+      "description": "Elegant chgitem style ring.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "CHOKER BLOOM",
+      "category": "bracelet",
+      "price": "20000",
+      "image": "/uploads/bracelets/bracelet4.jpg",
+      "alt": "bracelet7",
+      "description": "Choker bloom ring with stylish design."
+    },
+    {
+      "category": "bracelet",
+      "name": "MOONSTONE",
+      "price": "48000",
+      "image": "/uploads/bracelets/bracelet8.jpg",
+      "alt": "bracelet8",
+      "description": "Moonstone inspired ring with radiant beauty."
+    },
+    {
+      "name": "HEART",
+      "category": "bracelet",
+      "price": "40000",
+      "image": "/uploads/bracelets/bracelet3.jpg",
+      "alt": "bracelet9",
+      "description": "Heart shaped ring symbolizing love."
+    },
+    {
+      "category": "bracelet",
+      "name": "SHELL",
+      "price": "25000",
+      "image": "/uploads/bracelets/bracelet1.jpg",
+      "alt": "bracelet10",
+      "description": "Shell inspired ring with ocean vibes."
+    }
+  ],
+  "brooches": [
+    {
+      "category": "brooch",
+      "name": "CHOKER BLOOM",
+      "price": "20000",
+      "image": "/uploads/brooches/brooch1.jpg",
+      "alt": "brooch1",
+      "description": "Choker bloom ring with stylish design."
+    },
+    {
+      "category": "brooch",
+      "name": "MOONSTONE",
+      "price": "48000",
+      "image": "/uploads/brooches/brooch4.jpg",
+      "alt": "brooch2",
+      "description": "Moonstone inspired ring with radiant beauty."
+    },
+    {
+      "category": "brooch",
+      "name": "HEART",
+      "price": "40000",
+      "image": "/uploads/brooches/brooch3.jpg",
+      "alt": "brooch3",
+      "description": "Heart shaped ring symbolizing love."
+    },
+    {
+      "category": "brooch",
+      "name": "SHELL",
+      "price": "25000",
+      "image": "/uploads/brooches/brooch2.jpg",
+      "alt": "brooch4",
+      "description": "Shell inspired ring with ocean vibes."
+    },
+    {
+      "name": "SHELL",
+      "price": "25000",
+      "category": "brooch",
+      "image": "/uploads/brooches/brooch5.jpg",
+      "alt": "brooch5",
+      "description": "Shell inspired ring with ocean vibes."
+    }
+  ]
+}
