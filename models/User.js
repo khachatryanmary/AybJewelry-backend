@@ -2,10 +2,14 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
     {
-        username: {
+        name: {
             type: String,
             required: true,
-            minlength: 3,
+            minlength: 1,
+        },
+        surname: {
+            type: String,
+            required: false,
         },
         email: {
             type: String,
@@ -16,10 +20,21 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true,
-            minlength: 6,
+            minlength: [8, "Password must be at least 8 characters long"],
+        },
+        resetPasswordToken: {
+            type: String,
+            default: null,
+        },
+        resetPasswordExpires: {
+            type: Date,
+            default: null,
         },
     },
     { timestamps: true }
 );
+
+// Case-insensitive index for email
+userSchema.index({ email: 1 }, { unique: true, collation: { locale: "en", strength: 2 } });
 
 export default mongoose.model("User", userSchema);

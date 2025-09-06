@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Cart from '../models/cartModel.js';
+import Product from '../models/productModel.js';
 
 const router = express.Router();
 
@@ -14,8 +15,8 @@ const formatCartItems = (items) => {
         image: item.productId.image,
         category: item.productId.category,
         quantity: item.quantity,
-        size: item.size, // Include size
-        totalPrice: item.productId.price * item.quantity
+        size: item.size,
+        totalPrice: item.productId.price * item.quantity,
     }));
 };
 
@@ -67,24 +68,29 @@ router.post('/:userId', async (req, res) => {
     }
 
     try {
-        let cart = await Cart.findOne({ userId });
+        const product = await Product.findById(productId);
+        if (!product) {
+            console.log(`Product not found: productId=${productId}`);
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        const isRing = product.category.toLowerCase() === 'ring';
 
+        let cart = await Cart.findOne({ userId });
         if (!cart) {
             cart = new Cart({ userId, items: [] });
         }
 
-        const existingItem = cart.items.find(i => i.productId.toString() === productId && i.size === size);
-
+        const existingItem = cart.items.find(i => i.productId.toString() === productId && i.size === (isRing ? size : null));
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
-            cart.items.push({ productId, quantity, size });
+            cart.items.push({ productId, quantity, size: isRing ? size : null });
         }
 
         await cart.save();
         await cart.populate('items.productId');
         const formatted = formatCartItems(cart.items);
-        console.log(`Added/Updated item for userId ${userId}, productId ${productId}, size ${size}`);
+        console.log(`Added/Updated item for userId ${userId}, productId ${productId}, size ${isRing ? size : 'none'}`);
         res.json(formatted);
     } catch (err) {
         console.error('Error adding to cart for userId', userId, ':', err);
@@ -113,24 +119,31 @@ router.patch('/:userId/:productId', async (req, res) => {
     }
 
     try {
+        const product = await Product.findById(productId);
+        if (!product) {
+            console.log(`Product not found: productId=${productId}`);
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        const isRing = product.category.toLowerCase() === 'ring';
+
         const cart = await Cart.findOne({ userId });
         if (!cart) {
             console.log(`Cart not found for userId: ${userId}`);
             return res.status(404).json({ message: 'Cart not found' });
         }
 
-        const item = cart.items.find(i => i.productId.toString() === productId && i.size === size);
+        const item = cart.items.find(i => i.productId.toString() === productId && i.size === (isRing ? size : null));
         if (!item) {
-            console.log(`Item not found in cart for userId ${userId}, productId ${productId}, size ${size}`);
+            console.log(`Item not found in cart for userId ${userId}, productId ${productId}, size ${isRing ? size : 'none'}`);
             return res.status(404).json({ message: 'Item not found' });
         }
 
         item.quantity = quantity;
-        if (size) item.size = size; // Allow size update if provided
+        if (isRing && size) item.size = size;
         await cart.save();
         await cart.populate('items.productId');
         const formatted = formatCartItems(cart.items);
-        console.log(`Updated quantity for userId ${userId}, productId ${productId}, size ${size} to ${quantity}`);
+        console.log(`Updated quantity for userId ${userId}, productId ${productId}, size ${isRing ? size : 'none'} to ${quantity}`);
         res.json(formatted);
     } catch (err) {
         console.error('Error updating cart for userId', userId, ':', err);
@@ -141,7 +154,7 @@ router.patch('/:userId/:productId', async (req, res) => {
 // DELETE item from cart
 router.delete('/:userId/:productId', async (req, res) => {
     const { userId, productId } = req.params;
-    const { size } = req.query; // Use query param for size to identify item
+    const { size } = req.query;
 
     if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(productId)) {
         console.log(`Invalid userId or productId: userId=${userId}, productId=${productId}`);
@@ -149,17 +162,28 @@ router.delete('/:userId/:productId', async (req, res) => {
     }
 
     try {
+        const product = await Product.findById(productId);
+        if (!product) {
+            console.log(`Product not found: productId=${productId}`);
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        const isRing = product.category.toLowerCase() === 'ring';
+
         const cart = await Cart.findOne({ userId });
         if (!cart) {
             console.log(`Cart not found for userId: ${userId}`);
             return res.status(404).json({ message: 'Cart not found' });
         }
 
-        cart.items = cart.items.filter(i => !(i.productId.toString() === productId && i.size === size));
+        console.log(`Before remove: userId=${userId}, productId=${productId}, size=${size || 'none'}, items=`, JSON.stringify(cart.items, null, 2));
+        cart.items = cart.items.filter(
+            (i) => !(i.productId.toString() === productId && (isRing ? i.size === size : i.size === null || size === 'null'))
+        );
+        console.log(`After remove: items=`, JSON.stringify(cart.items, null, 2));
         await cart.save();
         await cart.populate('items.productId');
         const formatted = formatCartItems(cart.items);
-        console.log(`Removed item for userId ${userId}, productId ${productId}, size ${size}`);
+        console.log(`Removed item for userId ${userId}, productId ${productId}, size ${isRing ? size : 'none'}`);
         res.json(formatted);
     } catch (err) {
         console.error('Error removing item from cart for userId', userId, ':', err);

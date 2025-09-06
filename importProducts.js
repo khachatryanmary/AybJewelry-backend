@@ -13,23 +13,23 @@ const importData = async () => {
         const rawData = fs.readFileSync('./data/db.json', 'utf-8');
         const data = JSON.parse(rawData);
 
-        // Combine all product categories into one array
         const products = [
             ...(data.necklaces || []),
             ...(data.rings || []),
             ...(data.earrings || []),
             ...(data.bracelets || []),
-            ...(data.brooches || [])
-        ];
+            ...(data.hairclips || []),
+        ].map(product => ({
+            ...product,
+            productCollection: product.productCollection || product.collection || 'Spring 2025', // Preserve db.json productCollection
+        }));
 
         if (!Array.isArray(products) || products.length === 0) {
             throw new Error('❌ No products found in db.json');
         }
 
-        // Clear old data (optional)
+        console.log('Products to import:', JSON.stringify(products, null, 2)); // Debug log
         await Product.deleteMany();
-
-        // Insert new products
         await Product.insertMany(products);
 
         console.log(`✅ Imported ${products.length} products successfully`);
