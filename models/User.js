@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema(
         email: {
             type: String,
             required: true,
-            unique: true,
             match: [/^\S+@\S+\.\S+$/, "Email is invalid"],
         },
         password: {
@@ -30,11 +29,28 @@ const userSchema = new mongoose.Schema(
             type: Date,
             default: null,
         },
+        role: {
+            type: String,
+            default: 'user',
+            enum: ['user', 'admin'],
+        },
+        banned: {
+            type: Boolean,
+            default: false,
+        },
+        banReason: {
+            type: String,
+            default: null,
+        },
+        bannedAt: {
+            type: Date,
+            default: null,
+        }
     },
     { timestamps: true }
 );
 
-// Case-insensitive index for email
+// Case-insensitive unique index for email
 userSchema.index({ email: 1 }, { unique: true, collation: { locale: "en", strength: 2 } });
 
 export default mongoose.model("User", userSchema);

@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 32Z34AMq6FRhiBGPThBbUvnBcAr_6F1uSMq7yTKVE6A8BfUH4
+tunnels:
+  backend:
+    proto: http
+    addr: 5000
+  frontend:
+    proto: http
+    addr: 5173

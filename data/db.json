@@ -3,7 +3,7 @@
     {
       "name": "CHOKER",
       "price": "20000",
-      "image": "/uploads/necklaces/necklace1.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757756959/necklace1_issxhp.jpg",
       "category": "necklace",
       "productCollection": "Spring 2025",
       "alt": "choker",
@@ -18,13 +18,13 @@
         }
       ],
       "images": [
-        "/uploads/necklaces/necklaceDetails/necklaceDetail1.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757116/necklaceDetail1_lwklgx.jpg"
       ]
     },
     {
       "name": "PEARLS",
       "price": "25000",
-      "image": "/uploads/necklaces/necklace2.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757305/necklace2_ndhmdn.jpg",
       "alt": "necklace2",
       "category": "necklace",
       "productCollection": "Spring 2025",
@@ -39,13 +39,13 @@
         }
       ],
       "images": [
-        "/uploads/necklaces/necklaceDetails/necklaceDetail2.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757182/necklaceDetail2_twv7pn.jpg"
       ]
     },
     {
       "name": "ROSE",
       "price": "25000",
-      "image": "/uploads/necklaces/necklace3.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757284/necklace3_mymj31.jpg",
       "alt": "necklace3",
       "category": "necklace",
       "productCollection": "Classic",
@@ -63,7 +63,7 @@
     {
       "name": "NARCISSUS",
       "price": "35000",
-      "image": "/uploads/necklaces/necklace16.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757658/necklace16_ygor0w.jpg",
       "alt": "necklace4",
       "category": "necklace",
       "productCollection": "Classic",
@@ -81,7 +81,7 @@
     {
       "name": "SNOWDROP",
       "price": "17000",
-      "image": "/uploads/necklaces/necklace17.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757667/necklace17_niqqtq.jpg",
       "alt": "necklace5",
       "productCollection": "Classic",
       "category": "necklace",
@@ -99,7 +99,7 @@
     {
       "name": "CHANDELIER",
       "price": "35000",
-      "image": "/uploads/necklaces/necklace4.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757522/necklace4_vsdhrk.jpg",
       "category": "necklace",
       "productCollection": "Spring 2025",
       "alt": "necklace6",
@@ -119,7 +119,7 @@
       "category": "necklace",
       "productCollection": "Spring 2025",
       "price": "30000",
-      "image": "/uploads/necklaces/necklace5.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757532/necklace5_fewzdi.jpg",
       "alt": "necklace7",
       "description": "Whispers of wings, a feather’s flight — freedom captured in silver and light.",
       "details": [
@@ -136,7 +136,7 @@
       "name": "HEART AND MOON",
       "category": "necklace",
       "price": "48000",
-      "image": "/uploads/necklaces/necklace6.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757543/necklace6_m5whew.jpg",
       "productCollection": "Spring 2025",
       "alt": "necklace8",
       "description":"Double pendant necklace — one heart, one red moonstone, a pair of charms in perfect harmony.",
@@ -150,7 +150,7 @@
         }
       ],
       "images": [
-        "/uploads/necklaces/necklaceDetails/necklaceDetail3.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757226/necklaceDetail3_tdejpj.jpg"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "40000",
-      "image": "/uploads/necklaces/necklace7.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757555/necklace7_qv7wam.jpg",
       "alt": "necklace9",
       "description": "A charming heart pendant that opens to reveal a hidden treasure — love, memories, or a secret kept close.",
       "details": [
@@ -176,7 +176,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "25000",
-      "image": "/uploads/necklaces/necklace8.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757574/necklace8_b59llw.jpg",
       "alt": "necklace10",
       "description": "A graceful pendant adorned with a tiny shell — a touch of the sea wherever you go.",
       "details": [
@@ -194,7 +194,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "40000",
-      "image": "/uploads/necklaces/necklace15.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757649/necklace15_vfet4d.jpg",
       "alt": "necklace11",
       "description": "A charming rabbit pendant that opens to hold your tiny treasures or wishes.",
       "details": [
@@ -212,7 +212,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "20000",
-      "image": "/uploads/necklaces/necklace10.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757583/necklace10_do9yxg.jpg",
       "alt": "necklace12",
       "description": "A delicate pendant featuring a pair of grapes, a symbol of abundance, harmony, and natural beauty.",
       "details": [
@@ -230,7 +230,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "10000",
-      "image": "/uploads/necklaces/necklace11.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757593/necklace11_iiav9i.jpg",
       "alt": "necklace13",
       "description": "A single drop of elegance, suspended in time.",
       "details": [
@@ -248,7 +248,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "40000",
-      "image": "/uploads/necklaces/necklace12.jpeg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757614/necklace12_cystj8.jpg",
       "alt": "necklace14",
       "description": "A whisper of luxury, hugging the neck with subtle charm.",
       "details": [
@@ -266,7 +266,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "15000",
-      "image": "/uploads/necklaces/necklace13.jpeg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757624/necklace13_tq5guc.jpg",
       "alt": "necklace15",
       "description": "A daring necklace that sparks confidence and inspires bold ambitions.",
       "details": [
@@ -284,7 +284,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "30000",
-      "image": "/uploads/necklaces/necklace18.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757676/necklace18_pkw1zt.jpg",
       "alt": "necklace16",
       "description": "A sleek choker adorned with delicate squares, merging minimalism with subtle elegance.",
       "details": [
@@ -302,7 +302,7 @@
       "productCollection": "Classic",
       "category": "necklace",
       "price": "20000",
-      "image": "/uploads/necklaces/necklace19.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757686/necklace19_ulmpsg.jpg",
       "alt": "necklace17",
       "description": "A lustrous strand of pearls, embodying purity, refinement, and enduring beauty.",
       "details": [
@@ -322,7 +322,7 @@
       "category": "ring",
       "productCollection": "Spring 2025",
       "price": "10000",
-      "image": "/uploads/rings/ring17.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758040/ring17_pjfnqu.jpg",
       "alt": "ring17",
       "description": "A radiant red moonstone glows at the center, embraced by a star-shaped setting. Bold yet mystical, this ring captures the fire of the night sky in a single luminous spark.",
       "details": [
@@ -340,7 +340,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "13000",
-      "image": "/uploads/rings/ring7.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757924/ring7_f7zv0e.jpg",
       "alt": "ring1",
       "description": "A luminous pearl rests at the center, cradled in a graceful design inspired by the first bloom of snowdrops. Pure, timeless, and quietly elegant, this ring embodies gentle strength and serene beauty.",
       "details": [
@@ -358,7 +358,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "25000",
-      "image": "/uploads/rings/ring9.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757944/ring9_u8nlpa.jpg",
       "alt": "ring2",
       "description": "A luminous pearl nestled in narcissus petals — a symbol of purity and renewal.",
       "details": [
@@ -376,7 +376,7 @@
       "category": "ring",
       "productCollection": "Classic",
       "price": "18000",
-      "image": "/uploads/rings/ring3.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757885/ring3_nvbivw.jpg",
       "alt": "ring3",
       "description": "A ring inspired by lunar mystery and night’s serenity.",
       "details": [
@@ -394,7 +394,7 @@
       "category": "ring",
       "productCollection": "Classic",
       "price": "17000",
-      "image": "/uploads/rings/ring1.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757823/ring1_nzvwkk.jpg",
       "alt": "ring4",
       "description": "A graceful ring shaped with a heart — the eternal emblem of love.",
       "details": [
@@ -412,7 +412,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "18000",
-      "image": "/uploads/rings/ring10.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757955/ring10_cjx3qj.jpg",
       "alt": "ring5",
       "description": "A playful ring adorned with spinning hearts, symbolizing love in motion.",
       "details": [
@@ -430,7 +430,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "18000",
-      "image": "/uploads/rings/ring14.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758005/ring14_dymtgb.jpg",
       "alt": "ring6",
       "description": "Designed with swimming fish, this ring captures the beauty of movement and vitality.",
       "details": [
@@ -441,6 +441,9 @@
           "design": "Original",
           "fit": "Standard"
         }
+      ],
+      "images": [
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757970/ring11_r8ykps.jpg"
       ]
     },
     {
@@ -448,7 +451,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "10000",
-      "image": "/uploads/rings/ring4.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757894/ring4_wlpr89.jpg",
       "alt": "ring7",
       "description": "A bold ring designed like a delicate cage, capturing light and air with its openwork structure.",
       "details": [
@@ -466,7 +469,7 @@
       "category": "ring",
       "productCollection": "Classic",
       "price": "15000",
-      "image": "/uploads/rings/ring8.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757934/ring8_rdptms.jpg",
       "alt": "ring8",
       "description": "A graceful ring featuring a lustrous pearl at its heart, framed by intricate antique-inspired details.",
       "details": [
@@ -484,7 +487,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "14000",
-      "image": "/uploads/rings/ring2.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757832/ring2_raqdyy.jpg",
       "alt": "ring9",
       "description": "A beautifully sculpted ring adorned with intricate engravings.",
       "details": [
@@ -502,7 +505,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "20000",
-      "image": "/uploads/rings/ring5.png",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757904/ring5_vi9rxt.png",
       "alt": "ring11",
       "description": "Sleek and modern, this ring mirrors your style with its polished square face.",
       "details": [
@@ -520,7 +523,7 @@
       "category": "ring",
       "productCollection": "Classic",
       "price": "10000",
-      "image": "/uploads/rings/ring12.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757983/ring12_qi1hz1.jpg",
       "alt": "ring12",
       "description": "Where brightness meets darkness — a subtle, elegant play of contrasts in every curve.",
       "details": [
@@ -538,7 +541,7 @@
       "productCollection": "Classic",
       "category": "ring",
       "price": "15000",
-      "image": "/uploads/rings/ring6.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757914/ring6_m1hebr.jpg",
       "alt": "ring14",
       "description": "Delicate pearls cascade gracefully, dancing with every movement—a whisper of elegance and charm.",
       "details": [
@@ -556,7 +559,7 @@
       "category": "ring",
       "productCollection": "Classic",
       "price": "10000",
-      "image": "/uploads/rings/ring15.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758017/ring15_zzdw0l.jpg",
       "alt": "ring15",
       "description": "A harmonious contrast of luminous sadaf and deep onyx, blending elegance with mystery.",
       "details": [
@@ -576,7 +579,7 @@
       "category": "earring",
       "productCollection": "Spring 2025",
       "price": "30000",
-      "image": "/uploads/earrings/earring15.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758327/earring15_ulqm7j.jpg",
       "alt": "earring15",
       "description": "A radiant star adorned with a glowing red moonstone, capturing the magic of the night sky.",
       "details": [
@@ -589,8 +592,7 @@
         }
       ],
       "images": [
-        "/uploads/earrings/earringDetails/earringDetail4-1.jpg",
-        "/uploads/earrings/earringDetails/earringDetail4-2.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758457/earringDetail4-2_r4vvjr.jpg"
       ]
     },
     {
@@ -598,7 +600,7 @@
       "category": "earring",
       "productCollection": "Spring 2025",
       "price": "12000",
-      "image": "/uploads/earrings/earring16.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758339/earring16_xhrbva.jpg",
       "alt": "earring0",
       "description": "A chic pair of earrings adorned with sparkling zircon: one ear showcases a simple stud, the other combines a stud with a delicate chain and cuff for a bold, modern look.",
       "details": [
@@ -611,7 +613,7 @@
         }
       ],
       "images": [
-        "/uploads/earrings/earringDetails/earringDetail1.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758413/earringDetail1_jhmheb.jpg"
       ]
     },
     {
@@ -619,7 +621,7 @@
       "category": "earring",
       "productCollection": "Spring 2025",
       "price": "20000",
-      "image": "/uploads/earrings/earring13.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758307/earring13_uo5yyy.jpg",
       "alt": "earring1",
       "description": "Elegant wings inspired by freedom, capturing the spirit of flight and grace in every detail.",
       "details": [
@@ -637,7 +639,7 @@
       "category": "earring",
       "productCollection": "Spring 2025",
       "price": "25000",
-      "image": "/uploads/earrings/earring14.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758317/earring14_m2bszl.jpg",
       "alt": "earring2",
       "description": "Elegant chandelier earring with delicate silver spheres gracefully cascading, shimmering with every movement.",
       "details": [
@@ -650,8 +652,8 @@
         }
       ],
       "images": [
-        "/uploads/earrings/earringDetails/earringDetail3-1.jpg",
-        "/uploads/earrings/earringDetails/earringDetail3-2.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758424/earringDetail3-1_cda3f7.jpg",
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758435/earringDetail3-2_giqgch.jpg"
       ]
     },
     {
@@ -659,7 +661,7 @@
       "category": "earring",
       "productCollection": "Classic",
       "price": "15000",
-      "image": "/uploads/earrings/earring12.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758294/earring12_swvqhs.jpg",
       "alt": "earring3",
       "description": "Twinkling star-shaped earrings, each adorned with a vibrant red moonstone at the center, capturing the magic of the night sky.",
       "details": [
@@ -677,7 +679,7 @@
       "category": "earring",
       "productCollection": "Classic",
       "price": "12000",
-      "image": "/uploads/earrings/earring3.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758197/earring3_jm49n0.jpg",
       "alt": "earring4",
       "description": "Delicate snowdrop-shaped earrings with a graceful bloom, featuring a pearl at the center for a touch of pure elegance.",
       "details": [
@@ -695,7 +697,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "35000",
-      "image": "/uploads/earrings/earring7.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758240/earring7_adq3md.jpg",
       "alt": "earring5",
       "description": "Red heart, full of passion and playful elegance.",
       "details": [
@@ -713,7 +715,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "14000",
-      "image": "/uploads/earrings/earring9.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758262/earring9_inkxil.jpg",
       "alt": "earring6",
       "description": "A subtle silver heart that speaks of quiet elegance.",
       "details": [
@@ -731,7 +733,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "10000",
-      "image": "/uploads/earrings/earring8.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758251/earring8_le7k5v.jpg",
       "alt": "earring7",
       "description": "Delicate duo of red hearts, perfectly paired for a sweet, whimsical touch.",
       "details": [
@@ -749,7 +751,7 @@
       "category": "earring",
       "productCollection": "Classic",
       "price": "35000",
-      "image": "/uploads/earrings/earring11.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758283/earring11_jjfp0w.jpg",
       "alt": "earring8",
       "description": "White heart, full of passion and playful elegance.",
       "details": [
@@ -767,7 +769,7 @@
       "productCollection": "Classic",
       "name": "PINK HEART",
       "price": "35000",
-      "image": "/uploads/earrings/earring1.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758168/earring1_diext6.jpg",
       "alt": "earring9",
       "description": "Pink heart, full of passion and playful elegance.",
       "details": [
@@ -785,7 +787,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "14000",
-      "image": "/uploads/earrings/earring10.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758272/earring10_wgboln.jpg",
       "alt": "earring10",
       "description": "Star-shaped earrings that shine with celestial charm and confidence.",
       "details": [
@@ -803,7 +805,7 @@
       "name": "AGATE HEART",
       "productCollection": "Classic",
       "price": "10000",
-      "image": "/uploads/earrings/earring6.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758230/earring6_yheefi.jpg",
       "alt": "earring11",
       "description": "Delicate heart earrings featuring vibrant agate for a touch of color and sentiment.",
       "details": [
@@ -821,7 +823,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "13000",
-      "image": "/uploads/earrings/earring4.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758207/earring4_ycewjk.jpg",
       "alt": "earring12",
       "description": "Mismatched hoops, one minimalist, one adorned with drifting pearls—chic and effortlessly charming.",
       "details": [
@@ -839,7 +841,7 @@
       "category": "earring",
       "productCollection": "Classic",
       "price": "20000",
-      "image": "/uploads/earrings/earring2.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758187/earring2_zmvy6p.jpg",
       "alt": "earring13",
       "description": "A lustrous pearl embraced by intricate vintage detailing—grace that transcends time.",
       "details": [
@@ -857,7 +859,7 @@
       "productCollection": "Classic",
       "category": "earring",
       "price": "20000",
-      "image": "/uploads/earrings/earring5.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758219/earring5_rjj8oi.jpg",
       "alt": "earring14",
       "description": "Delicate pearls gracefully descending in a cascading design, creating movement and timeless elegance.",
       "details": [
@@ -877,7 +879,7 @@
       "productCollection": "Classic",
       "category": "bracelet",
       "price": "23000",
-      "image": "/uploads/bracelets/bracelet6.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758624/bracelet6_adlg6d.jpg",
       "alt": "bracelet1",
       "description": "Elegant bracelet featuring a central pearl inspired by the narcissus flower, delicate and refined.",
       "details": [
@@ -895,7 +897,7 @@
       "category": "bracelet",
       "productCollection": "Classic",
       "price": "28000",
-      "image": "/uploads/bracelets/bracelet9.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758741/bracelet9_enjufq.jpg",
       "alt": "bracelet2",
       "description": "Delicate silver bracelet featuring a heart charm suspended from a fine chain — timeless, simple, and elegant.",
       "details": [
@@ -913,7 +915,7 @@
       "category": "bracelet",
       "price": "13000",
       "productCollection": "Classic",
-      "image": "/uploads/bracelets/bracelet5.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758613/bracelet5_ypjxj7.jpg",
       "alt": "bracelet3",
       "description": "A minimalist bracelet adorned with smooth silver spheres, radiating subtle elegance and modern simplicity.",
       "details": [
@@ -931,7 +933,7 @@
       "productCollection": "Classic",
       "category": "bracelet",
       "price": "12000",
-      "image": "/uploads/bracelets/bracelet7.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758634/bracelet7_izj5pc.jpg",
       "alt": "bracelet4",
       "description": "Tiny shell dancing with every step.",
       "details": [
@@ -948,7 +950,7 @@
       "name": "HEART STEPS",
       "productCollection": "Classic",
       "price": "9000",
-      "image": "/uploads/bracelets/bracelet2.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758530/bracelet2_qjfmgt.jpg",
       "category": "bracelet",
       "alt": "bracelet5",
       "description": "Hearts that follow your every step.",
@@ -967,7 +969,7 @@
       "productCollection": "Classic",
       "category": "bracelet",
       "price": "32000",
-      "image": "/uploads/bracelets/bracelet1.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758519/bracelet1_rijggc.jpg",
       "alt": "bracelet6",
       "description": "A delicate blend of silver and luminous mother-of-pearl, radiating timeless elegance.",
       "details": [
@@ -985,7 +987,7 @@
       "productCollection": "Classic",
       "category": "bracelet",
       "price": "30000",
-      "image": "/uploads/bracelets/bracelet4.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758602/bracelet4_ef5mpx.jpg",
       "alt": "bracelet7",
       "description": "A graceful chain that wraps the arm, adding subtle shimmer and elegance",
        "details": [
@@ -998,7 +1000,7 @@
         }
       ],
       "images": [
-        "/uploads/bracelets/braceletDetails/braceletDetail1.jpg"
+        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758799/braceletDetail1_hvwvmj.jpg"
       ]
     },
     {
@@ -1006,7 +1008,7 @@
       "name": "ECLIPSE",
       "productCollection": "Classic",
       "price": "32000",
-      "image": "/uploads/bracelets/bracelet8.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758730/bracelet8_ckmfyc.jpg",
       "alt": "bracelet8",
       "description": "A refined bracelet combining the deep mystery of onyx with the timeless shine of silver.",
        "details": [
@@ -1024,7 +1026,7 @@
       "category": "bracelet",
       "productCollection": "Classic",
       "price": "25000",
-      "image": "/uploads/bracelets/bracelet10.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758754/bracelet10_stoml0.jpg",
       "alt": "bracelet10",
       "description": "Romantic rose design paired with a glowing pearl, symbolizing beauty and grace.",
        "details": [
@@ -1044,7 +1046,7 @@
       "productCollection": "Classic",
       "category": "hairclip",
       "price": "25000",
-      "image": "/uploads/hairclips/hairclip1.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758855/hairclip1_jw7qpj.jpg",
       "alt": "hairclip1",
       "description": "Romantic rose hair clip crafted with delicate detail, perfect for everyday elegance or special occasions.",
       "details": [
@@ -1062,7 +1064,7 @@
       "name": "SNOWDROP",
       "productCollection": "Classic",
       "price": "20000",
-      "image": "/uploads/hairclips/hairclip4.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758890/hairclip4_qnu1rk.jpg",
       "alt": "hairclip2",
       "description": "Delicate snowdrop hair clips inspired by the first flowers of spring, symbolizing purity and renewal.",
       "details": [
@@ -1080,7 +1082,7 @@
       "productCollection": "Classic",
       "name": "TRIPLE CLAW CLIP",
       "price": "25000",
-      "image": "/uploads/hairclips/hairclip3.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758879/hairclip3_vedw0i.jpg",
       "alt": "hairclip3",
       "description": "Lightweight and durable, this triple-claw clip is perfect for holding small sections of hair.",
       "details": [
@@ -1098,7 +1100,7 @@
       "productCollection": "Classic",
       "name": "DOUBLE CLAW CLIP",
       "price": "20000",
-      "image": "/uploads/hairclips/hairclip2.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758868/hairclip2_nsasir.jpg",
       "alt": "hairclip4",
       "description": "Minimalist double-prong pin that holds hair firmly while adding a sleek accent.",
       "details": [
@@ -1116,7 +1118,7 @@
       "productCollection": "Classic",
       "price": "25000",
       "category": "hairclip",
-      "image": "/uploads/hairclips/hairclip5.jpg",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758901/hairclip5_akiixg.jpg",
       "alt": "hairclip5",
       "description": "Classic and versatile hair accessory, enriched with the subtle luster of nacre.",
       "details": [
@@ -1128,6 +1130,28 @@
           "fit": "Standart"
         }
       ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Necklaces",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776651/NecklacesCover_rmzqzz.jpg"
+    },
+    {
+      "name": "Rings",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776633/RingsCover_era0g4.jpg"
+    },
+    {
+      "name": "Earrings",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776682/EarringsCover_s0qt38.jpg"
+    },
+    {
+      "name": "Bracelets",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776699/BraceletsCover_jrtqpu.jpg"
+    },
+    {
+      "name": "Hair Clips",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776667/HairclipsCover_stvucq.jpg"
     }
   ]
 }

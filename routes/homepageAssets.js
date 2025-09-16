@@ -1,5 +1,5 @@
 import express from 'express';
-import HomepageAssets from '../models/HomepageAssetsModel.js';
+import HomepageAssets from '../models/homepageAssetsModel.js';
 import authMiddleware from '../middleware/auth.js';
 
 const router = express.Router();

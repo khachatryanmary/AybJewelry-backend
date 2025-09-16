@@ -1,58 +1,49 @@
+// models/productModel.js
 import mongoose from 'mongoose';
 
+// Sub-schema for details (disable _id here)
+const detailSchema = new mongoose.Schema({
+    material: String,
+    stone: String,
+    finish: String,
+    design: String,
+    fit: String
+}, { _id: false });
+
 const productSchema = new mongoose.Schema({
-    id: {
-        type: String, // Optional custom string ID
-        required: false,
-    },
-    name: {
+    id: { type: String },
+    name: { type: String, required: true },
+    price: { type: String, required: true },
+    image: { type: String, required: true },
+    alt: { type: String },
+    description: { type: String },
+    category: { type: String, required: true },
+    productCollection: { type: String, default: 'Classic' },
+
+    // Use detailSchema here
+    details: [detailSchema],
+
+    images: [String],
+
+    // New fields for enhanced admin features
+    status: {
         type: String,
-        required: true,
+        enum: ['available', 'sold-out', 'discontinued', 'pre-order'],
+        default: 'available'
     },
-    price: {
-        type: String, // Keep as String to match your existing data
-        required: true,
+    stock: {
+        type: Number,
+        default: 0
     },
-    image: {
-        type: String,
-        required: true,
+    featured: {
+        type: Boolean,
+        default: false
     },
-    alt: {
-        type: String,
-        required: false,
-    },
-    description: {
-        type: String,
-        required: false,
-    },
-    category: {
-        type: String,
-        required: true,
-        enum: ['necklace', 'ring', 'earring', 'bracelet', 'hairclip'],
-    },
-    details: [{
-        material: String,
-        stone: String,
-        finish: String,
-        design: String,
-        fit: String,
-    }],
-    images: [{
-        type: String, // Array of image paths for slider
-    }],
-    productCollection: {
-        type: String,
-        default: 'Spring 2025',
-    },
+    tags: [String],
+    seoTitle: String,
+    seoDescription: String
 }, {
-    timestamps: true, // Adds createdAt and updatedAt fields
+    timestamps: true
 });
 
-// Add indexes for better query performance
-productSchema.index({ category: 1 });
-productSchema.index({ productCollection: 1 });
-productSchema.index({ category: 1, productCollection: 1 });
-
-const Product = mongoose.model('Product', productSchema);
-
-export default Product;
+export default mongoose.model('Product', productSchema);

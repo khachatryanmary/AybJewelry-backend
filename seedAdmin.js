@@ -1,7 +1,7 @@
-// seedAdmin.js - place this file in your backend folder
+// seedAdmin.js
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import Admin from './models/Admin.js'; // Correct path assuming seedAdmin.js is in backend folder
+import Admin from './models/Admin.js';
 
 dotenv.config();
 
@@ -12,7 +12,8 @@ const seedAdmin = async () => {
         console.log('✅ Connected to MongoDB');
 
         const adminEmail = 'marykhachatryan01@gmail.com';
-        const adminPassword = 'm2004Khach';
+        const adminName = 'Mary';
+        const adminPassword = 'Zp!9uT$k4w@B7fXq';
 
         // Check if admin already exists
         const existingAdmin = await Admin.findOne({ email: adminEmail });
@@ -21,18 +22,20 @@ const seedAdmin = async () => {
             await Admin.deleteOne({ email: adminEmail });
         }
 
-        // Create new admin (password will be hashed by the pre-save hook)
+        // Create new admin
         const admin = new Admin({
             email: adminEmail,
-            password: adminPassword, // This will be hashed by the pre-save hook in Admin.js
+            name: adminName,
+            password: adminPassword,
             role: 'admin'
         });
 
         await admin.save();
         console.log('✅ Admin user created successfully');
         console.log('📧 Email:', adminEmail);
+        console.log('👤 Name:', adminName);
         console.log('🔑 Password:', adminPassword);
-        console.log('⚠️  Use these credentials to log in to the admin panel');
+        console.log('⚠️ Use these credentials to log in to the admin panel');
 
     } catch (error) {
         console.error('❌ Error creating admin:', error.message);

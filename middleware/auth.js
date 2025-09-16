@@ -1,3 +1,4 @@
+// middleware/auth.js - Fixed to work with your current setup
 import jwt from 'jsonwebtoken';
 
 const authMiddleware = (req, res, next) => {
@@ -15,13 +16,21 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log('✅ Auth Debug - Token decoded successfully:', { id: decoded.id, role: decoded.role });
+        console.log('✅ Auth Debug - Token decoded successfully:', {
+            id: decoded.id,
+            role: decoded.role,
+            name: decoded.name
+        });
 
-        if (decoded.role !== 'admin') {
-            console.log('❌ Auth Debug - Not admin role:', decoded.role);
-            return res.status(403).json({ message: 'Admin access required' });
-        }
-        req.user = decoded;
+        // Don't check admin role here - let adminMiddleware handle that
+        req.user = {
+            id: decoded.id,
+            role: decoded.role,
+            name: decoded.name,
+            email: decoded.email // Add email if it exists in token
+        };
+
+        console.log('✅ Auth middleware passed, user attached:', req.user);
         next();
     } catch (error) {
         console.log('❌ Auth Debug - Token verification failed:', error.message);
