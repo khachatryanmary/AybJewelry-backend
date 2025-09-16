@@ -88,7 +88,9 @@ try {
             'https://61e09d2abdac.ngrok-free.app',
             'https://aybjewelry.com',
             'https://www.aybjewelry.com',
-            'http://192.168.10.87:5173'
+            'http://192.168.10.87:5173',
+            'https://https://ayb-jewelry-fk7x.vercel.app/'
+
         ];
         const origin = req.get('Origin');
         res.status(204).set({
