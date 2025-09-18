@@ -4,12 +4,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 import os from 'os';
-import helmet from 'helmet';
-import compression from 'compression';
 
 dotenv.config();
 
-// Import routes
 import productRoutes from './routes/products.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import wishlistRoutes from './routes/wishlist.js';
@@ -24,24 +21,31 @@ import orderRoutes from './routes/orders.js';
 import categoryRoutes from './routes/categories.js';
 
 const app = express();
-console.log('🔍 Initializing Express app');
 
-// Security & Performance Middleware
-app.use(helmet()); // Security headers
-app.use(compression()); // Gzip compression
+// -----------------------------
+// Middleware
+// -----------------------------
 
-// Request logging
+// Log all requests
 app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} Body: ${JSON.stringify(req.body)}`);
     next();
 });
 
-// CORS configuration for production
+// Handle ngrok warning (if needed)
+app.use((req, res, next) => {
+    res.header('ngrok-skip-browser-warning', 'true');
+    next();
+});
+
+// CORS configuration
 const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:4173',
+    'https://61e09d2abdac.ngrok-free.app',
     'https://aybjewelry.com',
     'https://www.aybjewelry.com',
     'https://ayb-jewelry-4yh4.vercel.app',
-    'http://localhost:5173'
 ];
 
 app.use(cors({
@@ -49,86 +53,88 @@ app.use(cors({
         if (!origin || allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
+        console.log(`❌ CORS blocked for origin: ${origin}`);
         callback(new Error('Not allowed by CORS'));
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With'],
+    methods: ['GET','POST','PUT','DELETE','PATCH','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization','Cache-Control','X-Requested-With'],
     credentials: true,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 204,
 }));
 
-// JSON & URL-encoded body parsing
+// Parse JSON and URL-encoded bodies
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Static uploads
+// Serve uploaded files
 app.use('/uploads', express.static(path.join(process.cwd(), 'Uploads')));
 
-// Health check
+// -----------------------------
+// Health Check
+// -----------------------------
 app.get('/api/health', (req, res) => {
     res.json({
         status: 'OK',
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
-        environment: process.env.NODE_ENV || 'development'
+        environment: process.env.NODE_ENV || 'development',
     });
 });
 
-// Route mounting helper
-const mountRoute = (prefix, router, name) => {
-    try {
-        app.use(prefix, router.default || router);
-        console.log(`✅ Mounted ${name} at ${prefix}`);
-    } catch (err) {
-        console.error(`❌ Failed to mount ${name} at ${prefix}:`, err.message);
-    }
-};
+// -----------------------------
+// Routes
+// -----------------------------
+app.use('/api/contact', contactRoutes);
+app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/upload', uploadRoutes);
+app.use('/api/payment', paymentRoutes);
+app.use('/api/auth', authRouter);
+app.use('/api/homepage-assets', homepageAssetsRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/admin/auth', adminAuthRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/categories', categoryRoutes);
 
-// Mount routes
-mountRoute('/api/contact', contactRoutes, 'contactRoutes');
-mountRoute('/api/wishlist', wishlistRoutes, 'wishlistRoutes');
-mountRoute('/api/cart', cartRoutes, 'cartRoutes');
-mountRoute('/api/products', productRoutes, 'productRoutes');
-mountRoute('/api/upload', uploadRoutes, 'uploadRoutes');
-mountRoute('/api/payment', paymentRoutes, 'paymentRoutes');
-mountRoute('/api/auth', authRouter, 'authRouter');
-mountRoute('/api/homepage-assets', homepageAssetsRoutes, 'homepageAssetsRoutes');
-mountRoute('/api/orders', orderRoutes, 'orderRoutes');
-mountRoute('/api/admin/auth', adminAuthRoutes, 'adminAuthRoutes');
-mountRoute('/api/admin', adminRoutes, 'adminRoutes');
-mountRoute('/api/categories', categoryRoutes, 'categoryRoutes');
-
-// Global error handler
+// -----------------------------
+// Global Error Handler
+// -----------------------------
 app.use((err, req, res, next) => {
-    console.error(`[${new Date().toISOString()}] Error:`, err.message, err.stack);
+    console.error(`[${new Date().toISOString()}] ERROR:`, err.message);
     res.status(500).json({
         message: 'Server error',
-        error: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
+        error: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message,
     });
 });
 
-// MongoDB connection & server start
+// -----------------------------
+// Connect to MongoDB & Start Server
+// -----------------------------
+const PORT = process.env.PORT || 5000;
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log("✅ Connected to MongoDB");
-        const PORT = process.env.PORT || 5000;
-        const HOST = '0.0.0.0'; // Railway binds to 0.0.0.0
-        app.listen(PORT, HOST, () => {
-            console.log(`➡️ Server running on port ${PORT}`);
-            if (process.env.NODE_ENV !== 'production') {
+        console.log('✅ Connected to MongoDB');
+
+        app.listen(PORT, '0.0.0.0', () => {
+            const env = process.env.NODE_ENV || 'development';
+            console.log(`➡️ Server running on port ${PORT} (${env})`);
+
+            if (env === 'development') {
                 const nets = os.networkInterfaces();
                 for (const name of Object.keys(nets)) {
                     for (const net of nets[name]) {
                         if (net.family === 'IPv4' && !net.internal) {
-                            console.log(`   Network: http://${net.address}:${PORT}`);
+                            console.log(`   Network URL: http://${net.address}:${PORT}`);
                         }
                     }
                 }
             }
         });
     })
-    .catch((err) => {
-        console.error("❌ MongoDB connection error:", err);
+    .catch(err => {
+        console.error('❌ MongoDB connection error:', err.message);
         process.exit(1);
     });
 
