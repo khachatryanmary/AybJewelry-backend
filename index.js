@@ -39,6 +39,7 @@ app.use((req, res, next) => {
 });
 
 // CORS configuration
+
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:4173',
@@ -50,17 +51,23 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
+        // Allow requests with no origin (like Postman or same-origin)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.includes(origin)) {
             return callback(null, true);
+        } else {
+            console.log(`❌ CORS blocked for origin: ${origin}`);
+            return callback(null, false); // ← send false instead of throwing error
         }
-        console.log(`❌ CORS blocked for origin: ${origin}`);
-        callback(new Error('Not allowed by CORS'));
     },
-    methods: ['GET','POST','PUT','DELETE','PATCH','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization','Cache-Control','X-Requested-With'],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With'],
+    preflightContinue: false,
     optionsSuccessStatus: 204,
 }));
+
 
 // Parse JSON and URL-encoded bodies
 app.use(express.json({ limit: '50mb' }));
