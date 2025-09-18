@@ -4,13 +4,14 @@ import path from 'path';
 import fs from 'fs';
 import sharp from 'sharp';
 import authMiddleware from '../middleware/auth.js';
+import { cloudinaryImage } from '../cloudinaryConfig.js';
 
 const router = express.Router();
 
-// Ensure uploads directory exists
-const uploadsDir = 'uploads';
+// Ensure uploads directory exists for local fallback
+const uploadsDir = 'Uploads';
 if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
+    fs.mkdirSync(UploadsDir, { recursive: true });
 }
 
 // Configure multer for memory storage
@@ -31,10 +32,183 @@ const upload = multer({
     }
 });
 
-// Helper function to create organized folder structure
+// Helper function to upload to Cloudinary
+const uploadToCloudinary = async (buffer, options = {}) => {
+    return new Promise((resolve, reject) => {
+        // Log the cloud name being used
+        console.log('Cloudinary cloud name:', cloudinaryImage.config().cloud_name);
+
+        const uploadStream = cloudinaryImage.uploader.upload_stream(
+            {
+                resource_type: 'auto',
+                folder: options.folder || 'homepage',
+                transformation: [
+                    { width: 1920, height: 1080, crop: 'limit' },
+                    { quality: 'auto:good' },
+                    { format: 'auto' }
+                ],
+                ...options
+            },
+            (error, result) => {
+                if (error) {
+                    console.error('Cloudinary upload error:', error);
+                    reject(error);
+                } else {
+                    console.log('Cloudinary upload success:', result.public_id);
+                    resolve(result);
+                }
+            }
+        );
+
+        uploadStream.end(buffer);
+    });
+};
+
+// Cloudinary upload endpoint (supports single 'image' and multiple 'images')
+router.post('/cloudinary', authMiddleware, upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'images', maxCount: 10 }
+]), async (req, res) => {
+    try {
+        console.log('=== CLOUDINARY UPLOAD START ===');
+        console.log('Auth user:', req.user ? `${req.user.id} (${req.user.role})` : 'No user');
+        console.log('Files received:', req.files);
+        console.log('Body:', req.body);
+
+        if (!req.files || (!req.files.image && !req.files.images)) {
+            console.log('No files provided');
+            return res.status(400).json({ error: 'No image files provided' });
+        }
+
+        // Check Cloudinary configuration
+        if (!process.env.CLOUDINARY_CLOUD_NAME_IMAGE || !process.env.CLOUDINARY_API_KEY_IMAGE || !process.env.CLOUDINARY_API_SECRET_IMAGE) {
+            console.error('Cloudinary configuration incomplete:', {
+                cloud_name: process.env.CLOUDINARY_CLOUD_NAME_IMAGE ? 'Set' : 'Missing',
+                api_key: process.env.CLOUDINARY_API_KEY_IMAGE ? 'Set' : 'Missing',
+                api_secret: process.env.CLOUDINARY_API_SECRET_IMAGE ? 'Set' : 'Missing',
+            });
+            return res.status(500).json({ error: 'Cloudinary configuration missing' });
+        }
+
+        const { folder = 'homepage', public_id, productId = Date.now() } = req.body;
+
+        console.log('Uploading to Cloudinary folder:', folder);
+
+        const uploadedImages = [];
+
+        // Handle single image upload (main product image)
+        if (req.files.image) {
+            const file = req.files.image[0];
+            console.log('Original file size (single):', (file.size / 1024 / 1024).toFixed(2), 'MB');
+
+            const result = await uploadToCloudinary(file.buffer, {
+                folder,
+                public_id: public_id || `${folder}/hero-${productId}`
+            });
+
+            console.log('Cloudinary upload successful (single):');
+            console.log('- Public ID:', result.public_id);
+            console.log('- Secure URL:', result.secure_url);
+            console.log('- Size:', (result.bytes / 1024 / 1024).toFixed(2), 'MB');
+
+            uploadedImages.push({
+                public_id: result.public_id,
+                secure_url: result.secure_url,
+                url: result.url,
+                bytes: result.bytes,
+                format: result.format,
+                width: result.width,
+                height: result.height,
+                folder: result.folder
+            });
+        }
+
+        // Handle multiple image uploads (slider images)
+        if (req.files.images) {
+            for (let i = 0; i < req.files.images.length; i++) {
+                const file = req.files.images[i];
+                console.log('Original file size (multi):', (file.size / 1024 / 1024).toFixed(2), 'MB');
+
+                const result = await uploadToCloudinary(file.buffer, {
+                    folder,
+                    public_id: `${folder}/${folder.split('s')[0]}-slider-${productId}-${i}`
+                });
+
+                console.log('Cloudinary upload successful (multi):');
+                console.log('- Public ID:', result.public_id);
+                console.log('- Secure URL:', result.secure_url);
+                console.log('- Size:', (result.bytes / 1024 / 1024).toFixed(2), 'MB');
+
+                uploadedImages.push({
+                    public_id: result.public_id,
+                    secure_url: result.secure_url,
+                    url: result.url,
+                    bytes: result.bytes,
+                    format: result.format,
+                    width: result.width,
+                    height: result.height,
+                    folder: result.folder
+                });
+            }
+        }
+
+        console.log('=== CLOUDINARY UPLOAD END ===');
+
+        // Return single image response if only one file was uploaded
+        if (uploadedImages.length === 1) {
+            res.status(200).json(uploadedImages[0]);
+        } else {
+            res.status(200).json({
+                success: true,
+                images: uploadedImages,
+                totalUploaded: uploadedImages.length
+            });
+        }
+
+    } catch (error) {
+        console.error('=== CLOUDINARY UPLOAD ERROR ===');
+        console.error('Error:', error);
+        res.status(500).json({
+            error: error.message || 'Failed to upload image(s) to Cloudinary',
+            details: error.stack
+        });
+    }
+});
+
+// Delete Cloudinary image endpoint
+router.delete('/cloudinary', authMiddleware, async (req, res) => {
+    try {
+        console.log('=== DELETE CLOUDINARY IMAGE START ===');
+        const { public_id } = req.body;
+
+        if (!public_id) {
+            return res.status(400).json({ error: 'Public ID is required' });
+        }
+
+        console.log('Attempting to delete from Cloudinary:', public_id);
+
+        const result = await cloudinaryImage.uploader.destroy(public_id);
+        console.log('Cloudinary delete result:', result);
+
+        if (result.result === 'ok') {
+            res.status(200).json({ message: 'Image deleted successfully from Cloudinary' });
+        } else {
+            res.status(404).json({ error: 'Image not found in Cloudinary' });
+        }
+
+    } catch (error) {
+        console.error('=== DELETE CLOUDINARY IMAGE ERROR ===');
+        console.error('Error:', error);
+        res.status(500).json({
+            error: error.message || 'Failed to delete image from Cloudinary'
+        });
+    }
+});
+
+// Local storage routes (kept for compatibility)
 const createCategoryFolder = (category, productId) => {
     const categoryFolder = category ? `${category}` : 'general';
-    const productFolder = path.join(uploadsDir, categoryFolder, productId.toString());
+    const productFolder = path.join(UploadsDir, categoryFolder, productId.toString());
 
     if (!fs.existsSync(productFolder)) {
         fs.mkdirSync(productFolder, { recursive: true });
@@ -43,7 +217,6 @@ const createCategoryFolder = (category, productId) => {
     return productFolder;
 };
 
-// Helper function to compress and save image
 const processAndSaveImage = async (buffer, filename, outputPath, options = {}) => {
     const {
         width = 1920,
@@ -67,16 +240,9 @@ const processAndSaveImage = async (buffer, filename, outputPath, options = {}) =
     }
 };
 
-// Test route to verify upload routes are working
-router.get('/test', (req, res) => {
-    console.log('Upload routes are working');
-    res.json({ message: 'Upload routes are working', timestamp: new Date().toISOString() });
-});
-
-// Single image upload endpoint WITH AUTH
 router.post('/single', authMiddleware, upload.single('image'), async (req, res) => {
     try {
-        console.log('=== SINGLE IMAGE UPLOAD START ===');
+        console.log('=== LOCAL SINGLE IMAGE UPLOAD START ===');
         console.log('Auth user:', req.user ? `${req.user.id} (${req.user.role})` : 'No user');
         console.log('File received:', req.file ? 'Yes' : 'No');
         console.log('Body:', req.body);
@@ -89,32 +255,27 @@ router.post('/single', authMiddleware, upload.single('image'), async (req, res) 
         const { category = 'general', productId = Date.now() } = req.body;
         console.log('Category:', category, 'ProductId:', productId);
 
-        // Create folder structure
         const folderPath = createCategoryFolder(category, productId);
         console.log('Folder path:', folderPath);
 
-        // Generate unique filename
         const timestamp = Date.now();
         const filename = `${category}-${timestamp}.jpg`;
 
         console.log('Processing image:', filename);
 
-        // Process and save image
         await processAndSaveImage(req.file.buffer, filename, folderPath, {
             quality: 85,
             width: 2048,
             height: 2048
         });
 
-        // Get file stats
         const filePath = path.join(folderPath, filename);
         const processedSize = fs.statSync(filePath).size;
 
-        // Return relative path
         const relativePath = `/${path.relative('', filePath).replace(/\\/g, '/')}`;
 
         console.log('Success! Image saved to:', relativePath);
-        console.log('=== SINGLE IMAGE UPLOAD END ===');
+        console.log('=== LOCAL SINGLE IMAGE UPLOAD END ===');
 
         res.status(200).json({
             imagePath: relativePath,
@@ -125,7 +286,7 @@ router.post('/single', authMiddleware, upload.single('image'), async (req, res) 
         });
 
     } catch (error) {
-        console.error('=== SINGLE IMAGE UPLOAD ERROR ===');
+        console.error('=== LOCAL SINGLE IMAGE UPLOAD ERROR ===');
         console.error('Error:', error);
         res.status(500).json({
             error: error.message || 'Failed to upload image',
@@ -134,7 +295,6 @@ router.post('/single', authMiddleware, upload.single('image'), async (req, res) 
     }
 });
 
-// Multiple images upload endpoint WITH AUTH
 router.post('/multiple', authMiddleware, upload.array('images', 10), async (req, res) => {
     try {
         console.log('=== MULTIPLE IMAGE UPLOAD START ===');
@@ -193,10 +353,9 @@ router.post('/multiple', authMiddleware, upload.array('images', 10), async (req,
     }
 });
 
-// Delete image endpoint WITH AUTH
 router.delete('/delete', authMiddleware, async (req, res) => {
     try {
-        console.log('=== DELETE IMAGE START ===');
+        console.log('=== DELETE LOCAL IMAGE START ===');
         const { imagePath } = req.body;
 
         if (!imagePath) {
@@ -216,7 +375,7 @@ router.delete('/delete', authMiddleware, async (req, res) => {
         }
 
     } catch (error) {
-        console.error('=== DELETE IMAGE ERROR ===');
+        console.error('=== DELETE LOCAL IMAGE ERROR ===');
         console.error('Error:', error);
         res.status(500).json({
             error: error.message || 'Failed to delete image'
@@ -224,7 +383,6 @@ router.delete('/delete', authMiddleware, async (req, res) => {
     }
 });
 
-// Legacy route for backward compatibility (NO AUTH)
 router.post('/', upload.single('image'), (req, res) => {
     try {
         console.log('Using legacy upload route');
@@ -236,7 +394,6 @@ router.post('/', upload.single('image'), (req, res) => {
         const filename = `${timestamp}-${req.file.originalname}`;
         const legacyPath = path.join('Uploads', filename);
 
-        // Ensure legacy folder exists
         if (!fs.existsSync('Uploads')) {
             fs.mkdirSync('Uploads', { recursive: true });
         }
@@ -249,7 +406,6 @@ router.post('/', upload.single('image'), (req, res) => {
     }
 });
 
-// Error handling middleware
 router.use((error, req, res, next) => {
     console.error('Upload router error:', error);
 
@@ -262,6 +418,11 @@ router.use((error, req, res, next) => {
         if (error.code === 'LIMIT_FILE_COUNT') {
             return res.status(400).json({
                 error: 'Too many files. Maximum is 10 files per upload.'
+            });
+        }
+        if (error.code === 'LIMIT_UNEXPECTED_FILE') {
+            return res.status(400).json({
+                error: `Unexpected field: ${error.field}. Expected 'image' or 'images'.`
             });
         }
     }
