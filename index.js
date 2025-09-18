@@ -45,7 +45,7 @@ const allowedOrigins = [
     'https://61e09d2abdac.ngrok-free.app',
     'https://aybjewelry.com',
     'https://www.aybjewelry.com',
-    'https://ayb-jewelry-4yh4.vercel.app',
+    'https://ayb-jewelry.vercel.app',
 ];
 
 app.use(cors({
