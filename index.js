@@ -40,7 +40,8 @@ app.use((req, res, next) => {
 const allowedOrigins = [
     'https://aybjewelry.com',
     'https://www.aybjewelry.com',
-    'https://ayb-jewelry-4yh4.vercel.app'
+    'https://ayb-jewelry-4yh4.vercel.app',
+    'http://localhost:5173'
 ];
 
 app.use(cors({
