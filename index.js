@@ -1,77 +1,60 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import path from 'path';
-import os from 'os';
+// ... (your existing imports and middleware)
+const express = require('express'); // Note: You're using ESM (`import`), so keep consistent
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const path = require('path');
+const os = require('os');
 
 dotenv.config();
 
-import productRoutes from './routes/products.js';
-import uploadRoutes from './routes/uploadRoutes.js';
-import wishlistRoutes from './routes/wishlist.js';
-import cartRoutes from './routes/cart.js';
-import paymentRoutes from './routes/payment.js';
-import authRouter from './routes/auth.js';
-import homepageAssetsRoutes from './routes/homepageAssets.js';
-import contactRoutes from './routes/contact.js';
-import adminAuthRoutes from './routes/adminAuth.js';
-import adminRoutes from './routes/adminRoutes.js';
-import orderRoutes from './routes/orders.js';
-import categoryRoutes from './routes/categories.js';
-
 const app = express();
 
-// -----------------------------
-// Middleware
-// -----------------------------
-
-// Log all requests
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} Body: ${JSON.stringify(req.body)}`);
-    next();
-});
-
-// Handle ngrok warning (if needed)
-app.use((req, res, next) => {
-    res.header('ngrok-skip-browser-warning', 'true');
-    next();
-});
-
-// CORS configuration
-const allowedOrigins = [
-    'http://localhost:5173',
-    'http://localhost:4173',
-    'https://61e09d2abdac.ngrok-free.app',
-    'https://aybjewelry.com',
-    'https://www.aybjewelry.com',
-    'https://ayb-jewelry-4yh4.vercel.app',
-];
-
+// Middleware (your existing CORS, logging, etc., are fine)
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors({
     origin: (origin, callback) => {
+        const allowedOrigins = [
+            'http://localhost:5173',
+            'http://localhost:4173',
+            'https://61e09d2abdac.ngrok-free.app',
+            'https://aybjewelry.com',
+            'https://www.aybjewelry.com',
+            'https://ayb-jewelry-4yh4.vercel.app',
+        ];
         if (!origin || allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
         console.log(`❌ CORS blocked for origin: ${origin}`);
         callback(new Error('Not allowed by CORS'));
     },
-    methods: ['GET','POST','PUT','DELETE','PATCH','OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization','Cache-Control','X-Requested-With'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'X-Requested-With'],
     credentials: true,
     optionsSuccessStatus: 204,
 }));
-
-// Parse JSON and URL-encoded bodies
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-
-// Serve uploaded files
 app.use('/uploads', express.static(path.join(process.cwd(), 'Uploads')));
+app.use((req, res, next) => {
+    res.header('ngrok-skip-browser-warning', 'true');
+    next();
+});
 
-// -----------------------------
-// Health Check
-// -----------------------------
+// Routes (all good)
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/wishlist', require('./routes/wishlist'));
+app.use('/api/cart', require('./routes/cart'));
+app.use('/api/products', require('./routes/products'));
+app.use('/api/upload', require('./routes/uploadRoutes'));
+app.use('/api/payment', require('./routes/payment'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/homepage-assets', require('./routes/homepageAssets'));
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/admin/auth', require('./routes/adminAuth'));
+app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/categories', require('./routes/categories'));
+
+// Health check
 app.get('/api/health', (req, res) => {
     res.json({
         status: 'OK',
@@ -81,25 +64,7 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// -----------------------------
-// Routes
-// -----------------------------
-app.use('/api/contact', contactRoutes);
-app.use('/api/wishlist', wishlistRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/upload', uploadRoutes);
-app.use('/api/payment', paymentRoutes);
-app.use('/api/auth', authRouter);
-app.use('/api/homepage-assets', homepageAssetsRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/admin/auth', adminAuthRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/categories', categoryRoutes);
-
-// -----------------------------
-// Global Error Handler
-// -----------------------------
+// Global error handler
 app.use((err, req, res, next) => {
     console.error(`[${new Date().toISOString()}] ERROR:`, err.message);
     res.status(500).json({
@@ -108,29 +73,13 @@ app.use((err, req, res, next) => {
     });
 });
 
-// -----------------------------
-// Connect to MongoDB & Start Server
-// -----------------------------
-const PORT = process.env.PORT || 5000;
-
+// MongoDB & Server
+const PORT = process.env.PORT || 3000; // Change default to 3000
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('✅ Connected to MongoDB');
-
         app.listen(PORT, '0.0.0.0', () => {
-            const env = process.env.NODE_ENV || 'development';
-            console.log(`➡️ Server running on port ${PORT} (${env})`);
-
-            if (env === 'development') {
-                const nets = os.networkInterfaces();
-                for (const name of Object.keys(nets)) {
-                    for (const net of nets[name]) {
-                        if (net.family === 'IPv4' && !net.internal) {
-                            console.log(`   Network URL: http://${net.address}:${PORT}`);
-                        }
-                    }
-                }
-            }
+            console.log(`➡️ Server running on port ${PORT} (${process.env.NODE_ENV || 'development'})`);
         });
     })
     .catch(err => {
@@ -138,4 +87,4 @@ mongoose.connect(process.env.MONGO_URI)
         process.exit(1);
     });
 
-export default app;
+module.exports = app;
