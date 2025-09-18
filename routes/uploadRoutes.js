@@ -11,8 +11,7 @@ const router = express.Router();
 // Ensure uploads directory exists for local fallback
 const uploadsDir = 'Uploads';
 if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(UploadsDir, { recursive: true });
-}
+    fs.mkdirSync(uploadsDir, { recursive: true });}
 
 // Configure multer for memory storage
 const storage = multer.memoryStorage();
