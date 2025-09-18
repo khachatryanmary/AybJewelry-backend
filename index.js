@@ -40,31 +40,28 @@ try {
         console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} ${JSON.stringify(req.body)}`);
         next();
     });
-    // console.log('✅ Request logging middleware mounted');
 } catch (err) {
     console.error('❌ Failed to mount request logging middleware:', err.message);
 }
 
 // Handle ngrok warning
 try {
-    // console.log('🔍 Mounting ngrok header middleware');
     app.use((req, res, next) => {
         res.header('ngrok-skip-browser-warning', 'true');
         next();
     });
-    // console.log('✅ Ngrok header middleware mounted');
 } catch (err) {
     console.error('❌ Failed to mount ngrok header middleware:', err.message);
 }
 
 // CORS configuration
 try {
-    // console.log('🔍 Mounting CORS middleware');
     app.use(cors({
         origin: (origin, callback) => {
             console.log(`🔍 CORS origin received: ${origin || 'No origin'}`);
             const allowedOrigins = [
                 'http://localhost:5173',
+                'http://localhost:4173',
                 'https://61e09d2abdac.ngrok-free.app',
                 'https://aybjewelry.com',
                 'https://www.aybjewelry.com',
@@ -83,36 +80,23 @@ try {
         credentials: true,
         optionsSuccessStatus: 204
     }));
-    // console.log('✅ CORS middleware mounted');
 } catch (err) {
     console.error('❌ Failed to mount CORS middleware:', err.message);
 }
 
-// Fallback OPTIONS handler
-try {
-    // console.log('🔍 Mounting fallback OPTIONS handler');
-    app.options('*', (req, res) => {
-        console.log(`🔍 Handling OPTIONS for ${req.path}`);
-        const allowedOrigins = [
-            'http://localhost:5173',
-            'https://61e09d2abdac.ngrok-free.app',
-            'https://aybjewelry.com',
-            'https://www.aybjewelry.com',
-            'http://192.168.10.87:5173',
-            'https://ayb-jewelry-fk7x.vercel.app'
-        ];
-        const origin = req.get('Origin');
-        res.status(204).set({
-            'Access-Control-Allow-Origin': origin && allowedOrigins.includes(origin) ? origin : false,
-            'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type,Authorization,Cache-Control,X-Requested-With',
-            'Access-Control-Allow-Credentials': 'true'
-        }).end();
-    });
-    // console.log('✅ Fallback OPTIONS handler mounted');
-} catch (err) {
-    console.error('❌ Failed to mount fallback OPTIONS handler:', err.message);
-}
+// Debug: Try to identify problematic route
+const originalUse = app.use.bind(app);
+app.use = function(path, ...args) {
+    try {
+        return originalUse(path, ...args);
+    } catch (err) {
+        console.error(`❌ Error mounting route with path: "${path}"`, err.message);
+        throw err;
+    }
+};
+
+// Let CORS middleware handle all OPTIONS requests
+console.log('✅ Using CORS middleware for OPTIONS handling');
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -131,11 +115,11 @@ app.get('/api/health', (req, res) => {
 // Mount routes with isolation
 const mountRoute = (prefix, router, name) => {
     try {
-        // console.log(`🔍 Attempting to mount ${name} at ${prefix}`);
+        console.log(`🔍 Attempting to mount ${name} at ${prefix}`);
         app.use(prefix, router.default || router);
-        // console.log(`✅ Successfully mounted ${name}`);
+        console.log(`✅ Successfully mounted ${name}`);
     } catch (err) {
-        // console.error(`❌ FAILED to mount ${name} at ${prefix}:`, err.message);
+        console.error(`❌ FAILED to mount ${name} at ${prefix}:`, err.message);
         console.error(`💡 ${name} may have invalid path syntax (e.g., unnamed * or ?). Check for /*, /:?, or regex chars like ().`);
     }
 };
@@ -144,7 +128,6 @@ const mountRoute = (prefix, router, name) => {
 mountRoute('/api/contact', contactRoutes, 'contactRoutes');
 mountRoute('/api/wishlist', wishlistRoutes, 'wishlistRoutes');
 mountRoute('/api/cart', cartRoutes, 'cartRoutes');
-// console.log('productRoutes check:', productRoutes);
 mountRoute('/api/products', productRoutes, 'productRoutes');
 mountRoute('/api/upload', uploadRoutes, 'uploadRoutes');
 mountRoute('/api/payment', paymentRoutes, 'paymentRoutes');
@@ -155,7 +138,7 @@ mountRoute('/api/admin/auth', adminAuthRoutes, 'adminAuthRoutes');
 mountRoute('/api/admin', adminRoutes, 'adminRoutes');
 mountRoute('/api/categories', categoryRoutes, 'categoryRoutes');
 
-// console.log('🎉 Route mounting complete (some may be skipped if broken)');
+console.log('🎉 Route mounting complete');
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -173,8 +156,12 @@ mongoose.connect(process.env.MONGO_URI)
         const PORT = process.env.PORT || 5000;
         const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '0.0.0.0';
         app.listen(PORT, HOST, () => {
-            console.log(`➡️ Server running on http://localhost:${PORT}`);
-            if (process.env.NODE_ENV !== 'production') {
+            const environment = process.env.NODE_ENV || 'development';
+            if (environment === 'production') {
+                console.log(`➡️ Server running in production on port ${PORT}`);
+                console.log(`🌍 Custom domain: https://aybjewelry.com`);
+            } else {
+                console.log(`➡️ Server running on http://localhost:${PORT}`);
                 const nets = os.networkInterfaces();
                 for (const name of Object.keys(nets)) {
                     for (const net of nets[name]) {
