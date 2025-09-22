@@ -1,6 +1,60 @@
 {
   "necklaces": [
     {
+      "name": "LOTUS BLOOM",
+      "price": "40000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390380/hero-1758431349207_pkrkjy.jpg",
+      "category": "necklace",
+      "productCollection": "Lotus",
+      "alt": "LotusNecklace",
+      "description": "This unique design embodies balance, serenity, and natural beauty, making it a meaningful accessory for everyday wear or a thoughtful gift for someone special.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "ETERNAL ROSE",
+      "price": "40000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390401/hero-1758431534857_kwzcm5.jpg",
+      "category": "necklace",
+      "productCollection": "Lotus",
+      "alt": "RoseNecklace",
+      "description": "Perfect for romantic occasions or as an everyday statement of elegance, the Eternal Rose Necklace brings a touch of floral luxury to any look.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "PEARL DROP",
+      "price": "40000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390424/hero-1758431164197_htntks.jpg",
+      "category": "necklace",
+      "productCollection": "Lotus",
+      "alt": "PearlDropNecklace",
+      "description": "Versatile and elegant, it’s ideal for both everyday wear and special occasions—adding a touch of classic beauty to any look.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
       "name": "CHOKER",
       "price": "20000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757756959/necklace1_issxhp.jpg",
@@ -48,7 +102,7 @@
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757284/necklace3_mymj31.jpg",
       "alt": "necklace3",
       "category": "necklace",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "description": "Necklace featuring a delicate rose and a luminous pearl. Romantic and graceful, it embodies timeless beauty with a soft, feminine touch.",
       "details": [
         {
@@ -66,7 +120,7 @@
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757658/necklace16_ygor0w.jpg",
       "alt": "necklace4",
       "category": "necklace",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "description": "Necklace featuring a blooming narcissus and a radiant pearl. Elegant and poetic, it captures the essence of purity, renewal, and refined femininity.",
       "details": [
         {
@@ -83,7 +137,7 @@
       "price": "17000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757667/necklace17_niqqtq.jpg",
       "alt": "necklace5",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "category": "necklace",
       "description": "Necklace featuring a graceful snowdrop and a shimmering wish pearl. Symbolizing hope and new beginnings, it brings a gentle elegance and a whisper of magic to any look.",
       "details": [
@@ -318,6 +372,60 @@
   ],
   "rings": [
     {
+      "name": "LOTUS RING",
+      "category": "ring",
+      "productCollection": "Lotus",
+      "price": "15000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390358/hero-1758429884155_p1ttw7.jpg",
+      "alt": "LotusRing",
+      "description": "Delicately crafted, the Lotus Ring with Pearl is both elegant and meaningful, making it a perfect choice for daily wear or as a thoughtful gift that carries deep symbolism.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Standard"
+        }
+      ]
+    },
+    {
+      "name": "PEARL DROP RING",
+      "category": "ring",
+      "productCollection": "Lotus",
+      "price": "15000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390331/hero-1758430345822_mcrqvw.jpg",
+      "alt": "LotusRing",
+      "description": "Featuring a luminous pearl delicately set to resemble a graceful drop, this ring embodies purity, sophistication, and understated charm.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Standard"
+        }
+      ]
+    },
+    {
+      "name": "LOTUS LEAF RING",
+      "category": "ring",
+      "productCollection": "Lotus",
+      "price": "20000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390339/hero-1758430870042_dtl0jn.jpg",
+      "alt": "LotusLeafRing",
+      "description": "Featuring a luminous pearl delicately set to resemble a graceful drop, this ring embodies purity, sophistication, and understated charm.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Standard"
+        }
+      ]
+    },
+    {
       "name": "STARS",
       "category": "ring",
       "productCollection": "Spring 2025",
@@ -337,7 +445,7 @@
     },
     {
       "name": "SNOWDROP",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "category": "ring",
       "price": "13000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757924/ring7_f7zv0e.jpg",
@@ -355,7 +463,7 @@
     },
     {
       "name": "NARCISSUS",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "category": "ring",
       "price": "25000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757944/ring9_u8nlpa.jpg",
@@ -374,7 +482,7 @@
     {
       "name": "SPINNING MOON",
       "category": "ring",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "price": "18000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757885/ring3_nvbivw.jpg",
       "alt": "ring3",
@@ -392,7 +500,7 @@
     {
       "name": "LOVE",
       "category": "ring",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "price": "17000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757823/ring1_nzvwkk.jpg",
       "alt": "ring4",
@@ -409,7 +517,7 @@
     },
     {
       "name": "SPINNING HEARTS",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "category": "ring",
       "price": "18000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757955/ring10_cjx3qj.jpg",
@@ -427,7 +535,7 @@
     },
     {
       "name": "SWIMMING FISH",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "category": "ring",
       "price": "18000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758005/ring14_dymtgb.jpg",
@@ -441,9 +549,6 @@
           "design": "Original",
           "fit": "Standard"
         }
-      ],
-      "images": [
-        "https://res.cloudinary.com/dnies3wxf/image/upload/v1757757970/ring11_r8ykps.jpg"
       ]
     },
     {
@@ -575,6 +680,42 @@
   ],
   "earrings": [
     {
+      "name": "PEARL DROP EARRING",
+      "category": "earring",
+      "productCollection": "Lotus",
+      "price": "30000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390234/hero-1758431800900_pd4mip.jpg",
+      "alt": "PearlEarring",
+      "description": "Perfect for adding a touch of refinement, these earrings are a must-have staple in any jewelry collection.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Fish hook"
+        }
+      ]
+    },
+    {
+      "name": "ROSE DROP",
+      "category": "earring",
+      "productCollection": "Lotus",
+      "price": "30000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390254/hero-1758431951086_zauxbn.jpg",
+      "alt": "RoseEarring",
+      "description": "Delicate and romantic, the Rose Earrings capture the timeless beauty of blooming roses. Symbolizing love, passion, and elegance, each rose detail is crafted to add a graceful charm to your look.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Fish hook"
+        }
+      ]
+    },
+    {
       "name": "STARS",
       "category": "earring",
       "productCollection": "Spring 2025",
@@ -659,7 +800,7 @@
     {
       "name": "STARS",
       "category": "earring",
-      "productCollection": "Classic",
+      "productCollection": "Spring 2025",
       "price": "15000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758294/earring12_swvqhs.jpg",
       "alt": "earring3",
@@ -677,7 +818,7 @@
     {
       "name": "SNOWDROP",
       "category": "earring",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "price": "12000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758197/earring3_jm49n0.jpg",
       "alt": "earring4",
@@ -694,7 +835,7 @@
     },
     {
       "name": "RED HEART",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "category": "earring",
       "price": "35000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758240/earring7_adq3md.jpg",
@@ -712,7 +853,7 @@
     },
     {
       "name": "SILVER HEART",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "category": "earring",
       "price": "14000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758262/earring9_inkxil.jpg",
@@ -730,7 +871,7 @@
     },
     {
       "name": "TWIN HEARTS",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "category": "earring",
       "price": "10000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758251/earring8_le7k5v.jpg",
@@ -749,7 +890,7 @@
     {
       "name": "WHITE HEART",
       "category": "earring",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "price": "35000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758283/earring11_jjfp0w.jpg",
       "alt": "earring8",
@@ -766,7 +907,7 @@
     },
     {
       "category": "earring",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "name": "PINK HEART",
       "price": "35000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758168/earring1_diext6.jpg",
@@ -875,8 +1016,44 @@
   ],
   "bracelets": [
     {
+      "name": "LOTUS BRACELET",
+      "productCollection": "Lotus",
+      "category": "bracelet",
+      "price": "30000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390204/hero-1758429304376_bruhcm.jpg",
+      "alt": "LotusBracelet",
+      "description": "This elegant bracelet showcases a delicate lotus design, crafted with care to embody serenity and balance. Lightweight yet durable, it’s perfect for everyday wear or as a meaningful gift for someone special.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Pearl",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
+      "name": "MOONSTONE BLOOM",
+      "productCollection": "Lotus",
+      "category": "bracelet",
+      "price": "30000",
+      "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1758390218/hero-1758432515640_pw22zx.jpg",
+      "alt": "MoonstoneBracelet",
+      "description": "Delicately designed, the Lotus Serenity Bracelet embodies the beauty and resilience of the lotus flower—a symbol of purity, growth, and inner peace. Its elegant form serves as a gentle reminder to stay balanced and graceful, even in life’s challenging moments.",
+      "details": [
+        {
+          "material": "925 Sterling Silver",
+          "stone": "Moonstone",
+          "finish": "High polish",
+          "design": "Original",
+          "fit": "Adjustable"
+        }
+      ]
+    },
+    {
       "name": "NARCISSUS",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "category": "bracelet",
       "price": "23000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758624/bracelet6_adlg6d.jpg",
@@ -895,7 +1072,7 @@
     {
       "name": "SILVER HEART",
       "category": "bracelet",
-      "productCollection": "Classic",
+      "productCollection": "Heart",
       "price": "28000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758741/bracelet9_enjufq.jpg",
       "alt": "bracelet2",
@@ -1024,7 +1201,7 @@
     {
       "name": "ROSE",
       "category": "bracelet",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "price": "25000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758754/bracelet10_stoml0.jpg",
       "alt": "bracelet10",
@@ -1043,7 +1220,7 @@
   "hairclips": [
     {
       "name": "ROSE",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "category": "hairclip",
       "price": "25000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758855/hairclip1_jw7qpj.jpg",
@@ -1062,7 +1239,7 @@
     {
       "category": "hairclip",
       "name": "SNOWDROP",
-      "productCollection": "Classic",
+      "productCollection": "Floral",
       "price": "20000",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757758890/hairclip4_qnu1rk.jpg",
       "alt": "hairclip2",
@@ -1150,7 +1327,7 @@
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776699/BraceletsCover_jrtqpu.jpg"
     },
     {
-      "name": "Hair Clips",
+      "name": "Hairclips",
       "image": "https://res.cloudinary.com/dnies3wxf/image/upload/v1757776667/HairclipsCover_stvucq.jpg"
     }
   ]

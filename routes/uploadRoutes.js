@@ -74,41 +74,36 @@ router.post('/cloudinary', authMiddleware, upload.fields([
         console.log('Files received:', req.files);
         console.log('Body:', req.body);
 
+        const { accountType = 'image', folder = 'homepage', public_id, productId = Date.now() } = req.body;
+
+        // Select Cloudinary instance based on accountType
+        const cloudinaryInstance = accountType === 'video' ? cloudinaryVideo : cloudinaryImage;
+
+        // Check configuration
+        if (!cloudinaryInstance.config().cloud_name || !cloudinaryInstance.config().api_key || !cloudinaryInstance.config().api_secret) {
+            console.error('Cloudinary configuration incomplete for', accountType);
+            return res.status(500).json({ error: `Cloudinary configuration missing for ${accountType} account` });
+        }
+
         if (!req.files || (!req.files.image && !req.files.images)) {
             console.log('No files provided');
             return res.status(400).json({ error: 'No image files provided' });
         }
 
-        // Check Cloudinary configuration
-        if (!process.env.CLOUDINARY_CLOUD_NAME_IMAGE || !process.env.CLOUDINARY_API_KEY_IMAGE || !process.env.CLOUDINARY_API_SECRET_IMAGE) {
-            console.error('Cloudinary configuration incomplete:', {
-                cloud_name: process.env.CLOUDINARY_CLOUD_NAME_IMAGE ? 'Set' : 'Missing',
-                api_key: process.env.CLOUDINARY_API_KEY_IMAGE ? 'Set' : 'Missing',
-                api_secret: process.env.CLOUDINARY_API_SECRET_IMAGE ? 'Set' : 'Missing',
-            });
-            return res.status(500).json({ error: 'Cloudinary configuration missing' });
-        }
-
-        const { folder = 'homepage', public_id, productId = Date.now() } = req.body;
-
         console.log('Uploading to Cloudinary folder:', folder);
 
         const uploadedImages = [];
 
-        // Handle single image upload (main product image)
+        // Handle single image upload
         if (req.files.image) {
             const file = req.files.image[0];
             console.log('Original file size (single):', (file.size / 1024 / 1024).toFixed(2), 'MB');
 
             const result = await uploadToCloudinary(file.buffer, {
                 folder,
-                public_id: public_id || `${folder}/hero-${productId}`
+                public_id: public_id || `${folder}/hero-${productId}`,
+                cloudinaryInstance // Pass the selected instance
             });
-
-            console.log('Cloudinary upload successful (single):');
-            console.log('- Public ID:', result.public_id);
-            console.log('- Secure URL:', result.secure_url);
-            console.log('- Size:', (result.bytes / 1024 / 1024).toFixed(2), 'MB');
 
             uploadedImages.push({
                 public_id: result.public_id,
@@ -122,7 +117,7 @@ router.post('/cloudinary', authMiddleware, upload.fields([
             });
         }
 
-        // Handle multiple image uploads (slider images)
+        // Handle multiple image uploads
         if (req.files.images) {
             for (let i = 0; i < req.files.images.length; i++) {
                 const file = req.files.images[i];
@@ -130,13 +125,9 @@ router.post('/cloudinary', authMiddleware, upload.fields([
 
                 const result = await uploadToCloudinary(file.buffer, {
                     folder,
-                    public_id: `${folder}/${folder.split('s')[0]}-slider-${productId}-${i}`
+                    public_id: `${folder}/${folder.split('s')[0]}-slider-${productId}-${i}`,
+                    cloudinaryInstance
                 });
-
-                console.log('Cloudinary upload successful (multi):');
-                console.log('- Public ID:', result.public_id);
-                console.log('- Secure URL:', result.secure_url);
-                console.log('- Size:', (result.bytes / 1024 / 1024).toFixed(2), 'MB');
 
                 uploadedImages.push({
                     public_id: result.public_id,
@@ -153,7 +144,6 @@ router.post('/cloudinary', authMiddleware, upload.fields([
 
         console.log('=== CLOUDINARY UPLOAD END ===');
 
-        // Return single image response if only one file was uploaded
         if (uploadedImages.length === 1) {
             res.status(200).json(uploadedImages[0]);
         } else {
